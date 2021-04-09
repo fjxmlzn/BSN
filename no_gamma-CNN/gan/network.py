@@ -113,10 +113,11 @@ class Generator(Network):
 
 
 class Discriminator(Network):
-    def __init__(self, sn_mode,
+    def __init__(self, scale, sn_mode,
                  scope_name="discriminator", *args, **kwargs):
         super(Discriminator, self).__init__(
             scope_name=scope_name, *args, **kwargs)
+        self.scale = scale
         self.sn_mode = sn_mode
 
     def build(self, images, train, sn_op):
@@ -133,6 +134,7 @@ class Discriminator(Network):
                     k_w=3,
                     sn_op=sn_op,
                     with_sigma=True,
+                    scale=self.scale,
                     sn_mode=self.sn_mode)
                 layers.append(s_layer)
                 sigmas.append(s_sigma)
@@ -149,6 +151,7 @@ class Discriminator(Network):
                     k_w=4,
                     sn_op=sn_op,
                     with_sigma=True,
+                    scale=self.scale,
                     sn_mode=self.sn_mode)
                 layers.append(s_layer)
                 sigmas.append(s_sigma)
@@ -165,6 +168,7 @@ class Discriminator(Network):
                     k_w=3,
                     sn_op=sn_op,
                     with_sigma=True,
+                    scale=self.scale,
                     sn_mode=self.sn_mode)
                 layers.append(s_layer)
                 sigmas.append(s_sigma)
@@ -181,6 +185,7 @@ class Discriminator(Network):
                     k_w=4,
                     sn_op=sn_op,
                     with_sigma=True,
+                    scale=self.scale,
                     sn_mode=self.sn_mode)
                 layers.append(s_layer)
                 sigmas.append(s_sigma)
@@ -197,6 +202,7 @@ class Discriminator(Network):
                     k_w=3,
                     sn_op=sn_op,
                     with_sigma=True,
+                    scale=self.scale,
                     sn_mode=self.sn_mode)
                 layers.append(s_layer)
                 sigmas.append(s_sigma)
@@ -213,6 +219,7 @@ class Discriminator(Network):
                     k_w=4,
                     sn_op=sn_op,
                     with_sigma=True,
+                    scale=self.scale,
                     sn_mode=self.sn_mode)
                 layers.append(s_layer)
                 sigmas.append(s_sigma)
@@ -229,6 +236,7 @@ class Discriminator(Network):
                     k_w=3,
                     sn_op=sn_op,
                     with_sigma=True,
+                    scale=self.scale,
                     sn_mode=self.sn_mode)
                 layers.append(s_layer)
                 sigmas.append(s_sigma)
@@ -240,7 +248,8 @@ class Discriminator(Network):
                     layers[-1],
                     1,
                     sn_op=sn_op,
-                    with_sigma=True)
+                    with_sigma=True,
+                    scale=self.scale)
                 layers.append(s_layer)
                 sigmas.append(s_sigma)
 

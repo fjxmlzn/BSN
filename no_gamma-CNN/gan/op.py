@@ -4,7 +4,8 @@ from sn import spectral_normed_weight
 
 
 def linear(input_, output_size, scope_name="linear",
-           stddev=0.02, bias_start=0.0, sn_op=None, with_sigma=False):
+           stddev=0.02, bias_start=0.0, sn_op=None, with_sigma=False,
+           scale=None):
     with tf.variable_scope(scope_name):
         input_ = tf.reshape(
             input_,
@@ -25,6 +26,9 @@ def linear(input_, output_size, scope_name="linear",
         else:
             sigma = None
 
+        if scale is not None:
+            matrix = matrix * scale
+            
         bias = tf.get_variable(
             "bias",
             [output_size],
@@ -103,7 +107,8 @@ def deconv2d(input_, output_shape,
 
 def conv2d(input_, output_dim,
            k_h=5, k_w=5, d_h=2, d_w=2, stddev=0.02,
-           name="conv2d", sn_op=None, with_sigma=False, sn_mode=None):
+           name="conv2d", sn_op=None, with_sigma=False,
+           scale=None, sn_mode=None):
     # Code from:
     # https://github.com/carpedm20/DCGAN-tensorflow
     with tf.variable_scope(name):
@@ -140,6 +145,10 @@ def conv2d(input_, output_dim,
                 raise ValueError("Unknown SN mode: {}".format(sn_mode))
         else:
             sigmas = None
+
+        if scale is not None:
+            w = w * scale
+
         conv = tf.nn.conv2d(
             input_,
             w,

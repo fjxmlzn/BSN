@@ -32,7 +32,8 @@ class GANTask(GPUTask):
             output_height=height,
             output_depth=depth,
             mg=self._config["mg"])
-        discriminator = Discriminator(sn_mode=self._config["sn_mode"])
+        discriminator = Discriminator(
+            scale=self._config["scale"], sn_mode=self._config["sn_mode"])
 
         checkpoint_dir = os.path.join(self._work_dir, "checkpoint")
         if not os.path.exists(checkpoint_dir):

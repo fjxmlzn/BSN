@@ -6,7 +6,7 @@
 
 **Authors:** [Zinan Lin](http://www.andrew.cmu.edu/user/zinanl/), [Vyas Sekar](https://users.ece.cmu.edu/~vsekar/), [Giulia Fanti](https://www.andrew.cmu.edu/user/gfanti/)
 
-**Abstract:** Spectral normalization (SN) is a widely-used technique for improving the stability of Generative Adversarial Networks (GANs) by forcing each layer of the discriminator to have unit spectral norm. This approach controls the Lipschitz constant of the discriminator, and is empirically known to improve sample quality in many GAN architectures. However, there is currently little understanding of why SN is so effective. In this work, we show that SN controls the two major failure modes of GAN training: exploding and vanishing gradients. Our proofs illustrate a (perhaps unintentional) connection with the successful LeCun initialization technique, proposed over two decades ago to control gradients in the training of deep neural networks. This connection helps to explain why the most popular implementation of SN for GANs requires no hyperparameter tuning, whereas stricter implementations of SN have poor empirical performance out-of-the-box. Unlike LeCun initialization which only controls gradient vanishing at the beginning of training, we show that SN tends to preserve this property throughout training. Finally, building on this theoretical understanding, we propose Bidirectional Spectral Normalization (BSN), a modification of SN inspired by Xavier initialization, a later improvement to LeCun initialization. Theoretically, we show that BSN gives better gradient control than SN. Empirically, we demonstrate that BSN outperforms SN in sample quality on several benchmark datasets, while also exhibiting better training stability.
+**Abstract:** Spectral normalization (SN) is a widely-used technique for improving the stability and sample quality of Generative Adversarial Networks (GANs). However, there is currently limited understanding of why SN is effective. In this work, we show that SN controls two important failure modes of GAN training: exploding and vanishing gradients. Our proofs illustrate a (perhaps unintentional) connection with the successful LeCun initialization. This connection helps to explain why the most popular implementation of SN for GANs requires no hyper-parameter tuning, whereas stricter implementations of SN have poor empirical performance out-of-the-box. Unlike LeCun initialization which only controls gradient vanishing at the beginning of training, SN preserves this property throughout training. Building on this theoretical understanding, we propose a new spectral normalization technique: Bidirectional Scaled Spectral Normalization (BSSN), which incorporates insights from later improvements to LeCun initialization: Xavier initialization and Kaiming initialization. Theoretically, we show that BSSN gives better gradient control than SN. Empirically, we demonstrate that it outperforms SN in sample quality and training stability on several benchmark datasets.
 
 ---
 This repo contains the codes for reproducing the experiments of our BSN and different SN variants in the paper. The codes were tested under Python 2.7.5, TensorFlow 1.14.0.
@@ -47,7 +47,7 @@ Copy the preprocessed datasets from the previous steps into the following paths:
 
 Here `<code folder>` means
 
-* Vanilla SN and BSN without gammas: `no_gamma-CNN`.
+* Vanilla SN and our proposed BSSN/SSN/BSN without gammas: `no_gamma-CNN`.
 * SN with the same gammas: `same_gamma-CNN`.
 * SN with different gammas: `diff_gamma-CNN`.
 
@@ -65,7 +65,7 @@ All the configurable hyper-parameters can be set in `config.py`. The hyper-param
 
 Copy the preprocessed folder `ILSVRC2012` from the previous steps to `<code folder>/data/imagenet/ILSVRC2012`, where `<code folder>` means
 
-* Vanilla SN and BSN without gammas: `no_gamma-ResNet`.
+* Vanilla SN and our proposed BSSN/SSN/BSN without gammas: `no_gamma-ResNet`.
 
 Alternatively, you can directly modify the dataset path in `<code folder>/gan_task.py` to the path of the preprocessed folder `ILSVRC2012`.
 

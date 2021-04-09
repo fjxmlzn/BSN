@@ -25,6 +25,51 @@ config = {
             "dataset": ["cifar10"],
             "iteration": [400000],
             "run": range(5),
+            "g_lr": [0.0001],
+            "d_lr": [0.0001],
+            "g_beta1": [0.5],
+            "d_beta1": [0.5],
+            "g_beta2": [0.999],
+            "d_beta2": [0.999],
+            "n_dis": [1],
+            "mg": [4],
+            "sn_mode": ["SN", "BSN"],
+            "scale": [0.7, 0.8, 0.9, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2, 3.4, 3.6, 3.8, 4.0]
+        },
+        {
+            "dataset": ["stl10"],
+            "iteration": [800000],
+            "run": range(5),
+            "g_lr": [0.0001],
+            "d_lr": [0.0001],
+            "g_beta1": [0.5],
+            "d_beta1": [0.5],
+            "g_beta2": [0.999],
+            "d_beta2": [0.999],
+            "n_dis": [1],
+            "mg": [6],
+            "sn_mode": ["SN", "BSN"],
+            "scale": [0.7, 0.8, 0.9, 1.0, 1.2, 1.4, 1.6]
+        },
+        {
+            "dataset": ["celeba"],
+            "iteration": [400000],
+            "run": range(5),
+            "g_lr": [0.0001],
+            "d_lr": [0.0001],
+            "g_beta1": [0.5],
+            "d_beta1": [0.5],
+            "g_beta2": [0.999],
+            "d_beta2": [0.999],
+            "n_dis": [1],
+            "mg": [8],
+            "sn_mode": ["SN", "BSN"],
+            "scale": [0.7, 0.8, 0.9, 1.0, 1.2, 1.4, 1.6]
+        },
+        {
+            "dataset": ["cifar10"],
+            "iteration": [400000],
+            "run": range(5),
             "g_lr": [0.0001, 0.0002],
             "d_lr": [0.0001, 0.0002],
             "g_beta1": [0.5],
@@ -33,7 +78,8 @@ config = {
             "d_beta2": [0.999],
             "n_dis": [1],
             "mg": [4],
-            "sn_mode": ["SN", "BSN"]
+            "sn_mode": ["SN", "BSN"],
+            "scale": [1.0]
         },
         {
             "dataset": ["stl10"],
@@ -47,7 +93,8 @@ config = {
             "d_beta2": [0.999],
             "n_dis": [1],
             "mg": [6],
-            "sn_mode": ["SN", "BSN"]
+            "sn_mode": ["SN", "BSN"],
+            "scale": [1.0]
         },
         {
             "dataset": ["celeba"],
@@ -61,7 +108,8 @@ config = {
             "d_beta2": [0.999],
             "n_dis": [1],
             "mg": [8],
-            "sn_mode": ["SN", "BSN"]
+            "sn_mode": ["SN", "BSN"],
+            "scale": [1.0]
         },
         {
             "dataset": ["cifar10"],
@@ -75,7 +123,8 @@ config = {
             "d_beta2": [0.9],
             "n_dis": [5],
             "mg": [4],
-            "sn_mode": ["SN", "BSN"]
+            "sn_mode": ["SN", "BSN"],
+            "scale": [1.0]
         },
         {
             "dataset": ["stl10"],
@@ -89,7 +138,8 @@ config = {
             "d_beta2": [0.9],
             "n_dis": [5],
             "mg": [6],
-            "sn_mode": ["SN", "BSN"]
+            "sn_mode": ["SN", "BSN"],
+            "scale": [1.0]
         },
         {
             "dataset": ["celeba"],
@@ -103,7 +153,8 @@ config = {
             "d_beta2": [0.9],
             "n_dis": [5],
             "mg": [8],
-            "sn_mode": ["SN", "BSN"]
+            "sn_mode": ["SN", "BSN"],
+            "scale": [1.0]
         }
     ]
 }
