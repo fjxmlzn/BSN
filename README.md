@@ -1,5 +1,6 @@
 # Why Spectral Normalization Stabilizes GANs: Analysis and Improvements
 
+**[[paper (NeurIPS 2021)](https://openreview.net/forum?id=MLT9wFYMlJ9)]**
 **[[paper (arXiv)](https://arxiv.org/abs/2009.02773)]**
 **[[code](https://github.com/fjxmlzn/BSN)]**
 
