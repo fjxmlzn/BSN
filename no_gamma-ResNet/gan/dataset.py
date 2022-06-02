@@ -72,7 +72,7 @@ class NpyFolderDataset(object):
             process.terminate()
 
     @staticmethod
-    def transform(self, image):
+    def transform(image):
         return image
 
     def sample_batch(self, batch_size):
